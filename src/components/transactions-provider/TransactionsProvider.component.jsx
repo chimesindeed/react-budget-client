@@ -18,19 +18,19 @@ const initialState = {
 const TransactionsProvider = (props) => {
   const [state, dispatch] = useReducer(TransactionsReducer, initialState);
 
-  const dispatchDeleteTransaction = () => {
-    dispatch(deleteTransaction)
+  const dispatchDelete = (id) => {
+    dispatch(deleteTransaction(id))
   }
-  const dispatchAddTransaction = () => {
-    dispatch(addTransaction)
+  const dispatchAdd = (transaction) => {
+    return dispatch(addTransaction(transaction))
   }
-
+  console.log(dispatchDelete)
   return (
     <TransactionsContext.Provider
       value={{
         transactions: state.transactions,
-        dispatchDeleteTransaction,
-        dispatchAddTransaction
+        dispatchDelete,
+        dispatchAdd
       }}
     >
       {props.children}

@@ -1,10 +1,11 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
+import { Button, Stack } from 'react-bootstrap'
 import Header from './components/header/Header.component'
 import Balance from './components/balance/Balance.component'
 import GainsAndExpenses from './components/gains-and-expenses/GainsAndExpenses.component'
+import TransactionList from './components/transaction-list/TransactionList.component'
 
-import { Button, Stack } from 'react-bootstrap'
 import styles from './app.styles.module.scss'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Header />
             <Balance />
             <GainsAndExpenses />
+            <TransactionList />
           </div>
         </div>
         <div className={styles.buttonContainer}>
