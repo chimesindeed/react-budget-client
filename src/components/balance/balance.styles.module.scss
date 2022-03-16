@@ -1,0 +1,13 @@
+.balanceContainer {
+  display: flex;
+  flex-direction: horizontal;
+}
+#total {
+  letter-spacing: 1px;
+  color: darkGreen;
+}
+#balance {
+  padding-top: 3px;
+  padding-right: 20px;
+  text-transform: uppercase;
+}
