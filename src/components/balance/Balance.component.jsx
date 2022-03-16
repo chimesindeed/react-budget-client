@@ -13,9 +13,9 @@ const Balance = () => {
 
     return (
       <div className ={styles.balanceContainer}>
-        <h4 id={styles.balance}>Your Balance</h4>
-        <h2 id={styles.total}>${total}</h2>
-      </div>
+        <div id={styles.balance}>Balance:</div>
+          <div id={styles.total}>${total}</div>
+        </div>
     )
 };
 

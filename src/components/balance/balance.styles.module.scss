@@ -1,12 +1,21 @@
 .balanceContainer {
   display: flex;
-  flex-direction: column;
-}
-
-#total {
-  letter-spacing: 1px;
-  color: darkGreen;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 #balance {
+  font-size: 22px;
+  padding: 10px;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+
+}
+#total {
+  font-size: 24px;
+  padding: 10px;
+  letter-spacing: 1px;
+  color: darkBlue;
+  font-weight: bold;
 }
