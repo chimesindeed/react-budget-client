@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import { Stack } from 'react-bootstrap'
+import Header from './components/header/Header.component'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         direction='horizontal'
         gap='2'
         className='mb-4'>
-        text
+        <Header />
       </Stack>
     </Container>
   );
