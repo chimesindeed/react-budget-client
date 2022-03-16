@@ -1,5 +1,7 @@
 export default (state, action) => {
+
   switch(action.type){
+
     case 'DELETE_TRANSACTION':
       return {
         ...state,
@@ -7,6 +9,7 @@ export default (state, action) => {
           (item)=> { return item.id !== action.payload }
         )
       }
+
     case 'ADD_TRANSACTION':
       return {
         ...state,
