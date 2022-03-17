@@ -1,11 +1,16 @@
 #transactionsTitle {
   display: flex;
+  align-items: center;
   justify-content: center;
   letter-spacing: 1px;
-  border-bottom: 1px solid #bbb;
-  margin-top: 40px;
+  margin-top: 30px;
   padding-bottom: 10px;
 }
 .transactionsContainer {
-  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: tan;
+  border: 2px solid black;
 }

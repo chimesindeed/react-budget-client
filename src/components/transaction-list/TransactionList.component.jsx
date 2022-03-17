@@ -10,7 +10,7 @@ const TransactionList = ({}) => {
   return (
     <>
       <h3 id={styles.transactionsTitle}>Transactions</h3>
-      <ul className='transactionsContainer'>
+      <ul className={styles.transactionsContainer}>
         {
           transactions.map(
             (transaction)=> {

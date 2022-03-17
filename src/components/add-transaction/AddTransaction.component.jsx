@@ -7,7 +7,7 @@ const AddTransaction = ({}) => {
   const { dispatchAdd } = useContext(TransactionsContext)
 
   const [text, setText] = useState('')
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState('')
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -24,11 +24,11 @@ const AddTransaction = ({}) => {
 
   return (
     <>
-      <h3>Add new transaction</h3>
+      <div className = {styles.title}>Add Transaction</div>
       <form onSubmit={onSubmit}>
         <div className='form-control'>
-          <label htmlFor='text' name="text">Transaction</label>
           <input
+            required
             type='text'
             placeholder='description . . . '
             onChange={(e)=>{setText(e.target.value)}}
@@ -36,8 +36,9 @@ const AddTransaction = ({}) => {
         </div>
 
         <div className='form-control'>
-          <label htmlFor='amount'>Amount </label>
           <input
+            className={styles.numberInput}
+            required
             type='number'
             placeholder='(prefix with minus sign for expense)'
             onChange={(e)=>{setAmount(e.target.value)}}
