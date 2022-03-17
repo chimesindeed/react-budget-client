@@ -1,8 +1,10 @@
 
-body {
-  background-color: brown;
+.budgetGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  align-items: flex-start;
 }
-
 .topHorizontalContainer {
   display: flex;
   flex-direction: horizontal;
@@ -10,10 +12,14 @@ body {
 
 .leftSideContainer {
   margin-top: 65px;
+  padding-right: 90px;
+}
+.middleContainer {
+  margin-top: -6px;
+  padding-right: 60px;
 }
 .rightSideContainer {
-  margin-top: -6px;
-  padding-left: 60px;
+  width: 400px
 }
 .buttonContainer {
   display: flex;
