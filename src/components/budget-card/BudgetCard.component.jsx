@@ -1,9 +1,16 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, ProgressBar } from 'react-bootstrap'
 import { currencyFormatter } from '../../utils/utils.js'
 
 
 const BudgetCard = ({name, amount, max}) => {
+
+  function getProgressBarVariant(amount, max){
+    const ratio = amount / max;
+    if (ratio < .5) return 'primary'
+    if (ratio < .75) return 'warning'
+    return 'danger'
+  }
 
   return (
     <Card>
@@ -17,7 +24,8 @@ const BudgetCard = ({name, amount, max}) => {
               </span>
             </div>
         </Card.Title>
-
+        <ProgressBar className='rounded-pill' variant={getProgressBarVariant(amount, max)} min={0} max={max} now={amount} />
+       
       </Card.Body>
     </Card>
   )

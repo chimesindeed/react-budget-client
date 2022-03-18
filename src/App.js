@@ -32,7 +32,7 @@ function App() {
               <Button variant='primary'>Add Budget</Button>
             </Stack>
           <div className={styles.budgetGrid}>
-            <BudgetCard name='Entertainment' amount={200} max={1000}/>
+            <BudgetCard name='Entertainment' amount={500} max={1000}/>
           </div>
 
         </div>
