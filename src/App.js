@@ -8,13 +8,21 @@ import TransactionList from './components/transaction-list/TransactionList.compo
 import AddTransaction from './components/add-transaction/AddTransaction.component'
 import BudgetCard from './components/budget-card/BudgetCard.component'
 import AddBudgetModal from './components/add-budget-modal/AddBudgetModal.component'
-import { useBudgets } from './context/BudgetsContext'
+import AddExpenseModal from './components/add-expense-modal/AddExpenseModal.component'
+import { useBudgets, UNCATEGORIZED_BUDGET_ID } from './context/BudgetsContext'
 
 import styles from './app.styles.module.scss'
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false)
-  const { budgets } = useBudgets()
+  const [showAddExpenseModal, setShowAddExpenseModal] = useState(false)
+  const [addExpenseModalBudgetId, setAddExpenseModalBudgetId] = useState()
+  const { budgets, getBudgetExpenses } = useBudgets()
+
+  function openAddExpenseModal(budgetId){
+    setShowAddExpenseModal(true)
+    setAddExpenseModalBudgetId(budgetId)
+  }
   return (
     <>
       <Container className='my-4'>
@@ -36,23 +44,35 @@ function App() {
               <Stack direction='horizontal' className='mb-4 mt-2'>
                 <h3 className='me-auto'>Budgets</h3>
                 <Button variant='primary' onClick={()=>{setShowAddBudgetModal(true)}}>Add Budget</Button>
+                <Button variant='outline-primary' onClick={openAddExpenseModal}>Add Expense</Button>
               </Stack>
-            <div className={styles.budgetGrid}>
-            {
-              budgets.map(budget => (
-                <BudgetCard name={budget.name} amount={budget.amount} max={budget.max} gray/>
-
-              ))
-            }
+              <div className={styles.budgetGrid}>
+                {
+                  budgets.map(budget => {
+                    const amount = getBudgetExpenses(budget.id).reduce(
+                    (total, expense) => (total + expense.amount), 0)
+                    return (
+                      <BudgetCard
+                        key={budget.id}
+                        name={budget.name}
+                        amount={amount}
+                        max={budget.max}
+                        onAddExpenseClick={()=>{openAddExpenseModal(budget.id)}}/>
+                    )
+                  })
+                }
+              </div>
             </div>
-          </div>
           </div>
         </Stack>
       </Container>
       <AddBudgetModal show={showAddBudgetModal} handleClose={()=>{setShowAddBudgetModal(false)}} />
+      <AddExpenseModal
+        show={showAddExpenseModal}
+        handleClose={()=>{setShowAddExpenseModal(false)}}
+        defaultBudgetId={addExpenseModalBudgetId} />
     </>
-
-  );
+  )
 }
 
 export default App;

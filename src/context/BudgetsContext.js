@@ -6,4 +6,6 @@ export function useBudgets() {
   return useContext(BudgetsContext)
 }
 
+export const UNCATEGORIZED_BUDGET_ID = "Uncategorized"
+
 export default BudgetsContext
