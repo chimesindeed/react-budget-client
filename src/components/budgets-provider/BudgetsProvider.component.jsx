@@ -3,10 +3,6 @@ import useLocalStorage from '../../hooks/useLocalStorage'
 import { v4 as uuidV4 } from 'uuid'
 import BudgetsContext from '../../context/BudgetsContext'
 
-export function useBudgets() {
-  return useContext(BudgetsContext)
-}
-
 export const BudgetsProvider = ({ children }) => {
   const [budgets, setBudgets] = useLocalStorage('budgets', []);
   const [expenses, setExpenses] = useLocalStorage('expenses', [])
