@@ -7,6 +7,7 @@ import GainsAndExpenses from './components/gains-and-expenses/GainsAndExpenses.c
 import TransactionList from './components/transaction-list/TransactionList.component'
 import AddTransaction from './components/add-transaction/AddTransaction.component'
 import BudgetCard from './components/budget-card/BudgetCard.component'
+import UncategorizedBudgetCard from './components/uncategorized-budget-card/UncategorizedBudgetCard.component'
 import AddBudgetModal from './components/add-budget-modal/AddBudgetModal.component'
 import AddExpenseModal from './components/add-expense-modal/AddExpenseModal.component'
 import { useBudgets, UNCATEGORIZED_BUDGET_ID } from './context/BudgetsContext'
@@ -52,12 +53,16 @@ function App() {
                     const amount = getBudgetExpenses(budget.id).reduce(
                     (total, expense) => (total + expense.amount), 0)
                     return (
-                      <BudgetCard
-                        key={budget.id}
-                        name={budget.name}
-                        amount={amount}
-                        max={budget.max}
-                        onAddExpenseClick={()=>{openAddExpenseModal(budget.id)}}/>
+                      <>
+                        <BudgetCard
+                          key={budget.id}
+                          name={budget.name}
+                          amount={amount}
+                          max={budget.max}
+                          onAddExpenseClick={()=>{openAddExpenseModal(budget.id)}}/>
+
+                        <UncategorizedBudgetCard />
+                      </>
                     )
                   })
                 }
