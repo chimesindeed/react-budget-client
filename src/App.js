@@ -8,6 +8,7 @@ import TransactionList from './components/transaction-list/TransactionList.compo
 import AddTransaction from './components/add-transaction/AddTransaction.component'
 import BudgetCard from './components/budget-card/BudgetCard.component'
 import UncategorizedBudgetCard from './components/uncategorized-budget-card/UncategorizedBudgetCard.component'
+import TotalBudgetCard from './components/total-budget-card/TotalBudgetCard.component'
 import AddBudgetModal from './components/add-budget-modal/AddBudgetModal.component'
 import AddExpenseModal from './components/add-expense-modal/AddExpenseModal.component'
 import { useBudgets, UNCATEGORIZED_BUDGET_ID } from './context/BudgetsContext'
@@ -62,6 +63,7 @@ function App() {
                           onAddExpenseClick={()=>{openAddExpenseModal(budget.id)}}/>
 
                         <UncategorizedBudgetCard />
+                        <TotalBudgetCard />
                       </>
                     )
                   })
